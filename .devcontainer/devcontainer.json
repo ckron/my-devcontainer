@@ -1,0 +1,25 @@
+// sample: https://github.com/microsoft/vscode-course-sample/blob/main/.devcontainer/devcontainer.json
+{
+    "name": "ubuntu",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": ".."
+    },
+    "customizations": {
+        "vscode": {
+            "settings": {
+                // theme
+                "workbench.colorTheme": "Default Light+",
+                // tab
+                "editor.insertSpaces": true,
+                "editor.comments.insertSpace": true,
+                "editor.tabSize": 2,
+                // font
+                "editor.fontFamily": "Ricty Diminished",
+                "editor.fontSize": 16,
+                "terminal.integrated.fontFamily": "Ricty Diminished",
+                "terminal.integrated.fontSize": 16
+            }
+        }
+    }
+}
