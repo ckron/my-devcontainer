@@ -1,15 +1,14 @@
 // sample: https://github.com/microsoft/vscode-course-sample/blob/main/.devcontainer/devcontainer.json
 {
     "name": "ubuntu",
-    "build": {
-        "dockerfile": "Dockerfile",
-        "context": ".."
-    },
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "default",
+    "workspaceFolder": "/root",
     "customizations": {
         "vscode": {
             "settings": {
                 // theme
-                "workbench.colorTheme": "Default Light+",
+                "workbench.colorTheme": "Visual Studio Light",
                 // tab
                 "editor.insertSpaces": true,
                 "editor.comments.insertSpace": true,
@@ -18,8 +17,21 @@
                 "editor.fontFamily": "Ricty Diminished",
                 "editor.fontSize": 16,
                 "terminal.integrated.fontFamily": "Ricty Diminished",
-                "terminal.integrated.fontSize": 16
-            }
+                "terminal.integrated.fontSize": 16,
+                // editor
+                "files.eol": "\n",
+                "editor.stickyScroll.enabled": true,
+                "window.menuBarVisibility": "visible",
+                "editor.glyphMargin": false
+            },
+            "extensions": [
+                // C/C++
+                "ms-vscode.cpptools",
+                // Docker
+                "ms-azuretools.vscode-docker",
+                // GitLens
+                "eamodio.gitlens"
+            ]
         }
     }
 }
