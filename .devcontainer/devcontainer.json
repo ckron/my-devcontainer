@@ -3,7 +3,7 @@
     "name": "ubuntu",
     "dockerComposeFile": "../docker-compose.yml",
     "service": "default",
-    "workspaceFolder": "/root",
+    "workspaceFolder": "/home/ubuntu",
     "customizations": {
         "vscode": {
             "settings": {

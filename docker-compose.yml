@@ -9,7 +9,7 @@ services:
 # refer: https://qiita.com/t_katsumura/items/d5be6afadd6ec6545a9d#4-dood-docker-outside-of-docker-%E3%82%92%E8%A9%A6%E3%81%99
       - /var/run/docker.sock:/var/run/docker.sock
 # mount configuration file
-      - .:/root/my-devcontainer
+      - .:/home/ubuntu/my-devcontainer
 # your workspaces path
-      - your_workspace:/root/workspaces
+      - ${WORKSPACES}:/home/ubuntu/workspaces
     command: /bin/sh -c "while sleep 1000; do :; done"
