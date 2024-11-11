@@ -30,7 +30,9 @@
                 // Docker
                 "ms-azuretools.vscode-docker",
                 // GitLens
-                "eamodio.gitlens"
+                "eamodio.gitlens",
+                // Markdown to pdf
+                "yzane.markdown-pdf"
             ]
         }
     }
