@@ -11,5 +11,5 @@ services:
 # mount configuration file
       - .:/home/ubuntu/my-devcontainer
 # your workspaces path
-      - ${WORKSPACES}:/home/ubuntu/workspaces
+      - ${WORKSPACES}:/home/ubuntu
     command: /bin/sh -c "while sleep 1000; do :; done"
