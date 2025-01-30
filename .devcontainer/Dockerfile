@@ -11,6 +11,9 @@ RUN cd /root && \
 
 FROM ubuntu:22.04 AS final
 
+ENV TZ Asia/Tokyo
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 ENV SHELL /bin/bash
 
 RUN apt-get update && apt-get install -y \
@@ -35,7 +38,22 @@ RUN apt-get update && \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# refer from: https://code.visualstudio.com/remote/advancedcontainers/add-nonroot-user
+# add dependency packages for Markdown PDF
+RUN apt-get update && \
+    apt-get install -y gconf-service libasound2 libatk1.0-0 libc6 libcairo2 \
+    libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 \
+    libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 \
+    libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 \
+    libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 \
+    libxss1 libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 \
+    lsb-release xdg-utils wget x11vnc x11-xkb-utils xfonts-100dpi xfonts-75dpi \
+    xfonts-scalable xfonts-cyrillic x11-apps xvfb \
+# install japanease fonts
+    fonts-ipafont \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+    # refer from: https://code.visualstudio.com/remote/advancedcontainers/add-nonroot-user
 ARG USERNAME=ubuntu
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
