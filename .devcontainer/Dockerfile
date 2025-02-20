@@ -53,7 +53,7 @@ RUN apt-get update && \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-    # refer from: https://code.visualstudio.com/remote/advancedcontainers/add-nonroot-user
+# refer from: https://code.visualstudio.com/remote/advancedcontainers/add-nonroot-user
 ARG USERNAME=ubuntu
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
