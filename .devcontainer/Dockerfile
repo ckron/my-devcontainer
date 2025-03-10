@@ -48,6 +48,8 @@ RUN apt-get update && \
     libxss1 libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 \
     lsb-release xdg-utils wget x11vnc x11-xkb-utils xfonts-100dpi xfonts-75dpi \
     xfonts-scalable xfonts-cyrillic x11-apps xvfb \
+# install locale
+    locales-all \
 # install japanease fonts
     fonts-ipafont \
     && apt-get clean \
