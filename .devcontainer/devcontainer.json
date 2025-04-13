@@ -23,6 +23,8 @@
                 "editor.stickyScroll.enabled": true,
                 "window.menuBarVisibility": "visible",
                 "editor.glyphMargin": false,
+                "editor.rulers": [80],
+                "editor.suggestOnTriggerCharacters": false,
                 // terminal (fix duplicate shortcuts of vim ctrl+v and clipboard paste )
                 "terminal.integrated.commandsToSkipShell": ["-workbench.action.terminal.paste"]
             },
