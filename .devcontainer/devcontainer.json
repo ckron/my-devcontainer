@@ -22,7 +22,9 @@
                 "files.eol": "\n",
                 "editor.stickyScroll.enabled": true,
                 "window.menuBarVisibility": "visible",
-                "editor.glyphMargin": false
+                "editor.glyphMargin": false,
+                // terminal (fix duplicate shortcuts of vim ctrl+v and clipboard paste )
+                "terminal.integrated.commandsToSkipShell": ["-workbench.action.terminal.paste"]
             },
             "extensions": [
                 // C/C++
