@@ -14,9 +14,9 @@
                 "editor.comments.insertSpace": true,
                 "editor.tabSize": 2,
                 // font
-                "editor.fontFamily": "Ricty Diminished",
+                "editor.fontFamily": "HackGen",
                 "editor.fontSize": 16,
-                "terminal.integrated.fontFamily": "Ricty Diminished",
+                "terminal.integrated.fontFamily": "HackGen",
                 "terminal.integrated.fontSize": 16,
                 // editor
                 "files.eol": "\n",

@@ -1,13 +1,17 @@
 FROM ubuntu:22.04 AS cache
 
 RUN apt-get update && apt-get install -y \
-    git \
+    wget \
+    unzip \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
 # install favorite font (fork repository)
 RUN cd /root && \
-    git clone https://github.com/ckron/RictyDiminished.git
+    wget https://github.com/yuru7/HackGen/releases/download/v2.10.0/HackGen_v2.10.0.zip && \
+    unzip HackGen_v2.10.0.zip && \
+    wget https://github.com/yuru7/HackGen/releases/download/v2.10.0/HackGen_NF_v2.10.0.zip && \
+    unzip HackGen_NF_v2.10.0.zip
 
 FROM ubuntu:22.04 AS final
 
@@ -48,8 +52,6 @@ RUN apt-get update && \
     libxss1 libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 \
     lsb-release xdg-utils wget x11vnc x11-xkb-utils xfonts-100dpi xfonts-75dpi \
     xfonts-scalable xfonts-cyrillic x11-apps xvfb \
-# install locale
-    locales-all \
 # install japanease fonts
     fonts-ipafont \
     && apt-get clean \
@@ -72,5 +74,5 @@ RUN usermod -a -G docker $USERNAME
 USER $USERNAME
 
 # copy font
-RUN mkdir -p /home/$USERNAME/.font
-COPY --from=cache /root/RictyDiminished/*.ttf /home/$USERNAME/.font
+COPY --from=cache /root/HackGen_v2.10.0 /usr/share/fonts/HackGen_v2.10.0
+COPY --from=cache /root/HackGen_NF_v2.10.0 /usr/share/fonts/HackGen_NF_v2.10.0
