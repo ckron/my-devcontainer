@@ -13,3 +13,5 @@ services:
 # your workspaces path
       - ${WORKSPACE}:/home/ubuntu/workspace
     command: /bin/sh -c "while sleep 1000; do :; done"
+    group_add:
+      - ${DOCKER_GID}

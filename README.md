@@ -2,5 +2,6 @@
 
 ### .env sample
 ```
-WORKSPACES=<your workspaces folder(full path)>
+WORKSPACE=<your workspaces folder(full path)>
+DOCKER_GID=<docker group id>
 ```
