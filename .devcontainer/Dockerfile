@@ -76,3 +76,20 @@ USER $USERNAME
 # copy font
 COPY --from=cache /root/HackGen_v2.10.0 /usr/share/fonts/HackGen_v2.10.0
 COPY --from=cache /root/HackGen_NF_v2.10.0 /usr/share/fonts/HackGen_NF_v2.10.0
+
+# install claude
+RUN curl -fsSL https://claude.ai/install.sh | bash
+
+USER root
+
+# install ccusage
+RUN apt-get update && apt-get install -y \
+    nodejs \
+    npm \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+USER $USERNAME
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+
+RUN /bin/bash -c ". /home/$USERNAME/.nvm/nvm.sh; nvm install 20"
